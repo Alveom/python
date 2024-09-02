@@ -64,13 +64,31 @@ tests.append(
         'output' : 2
     }
 )
+tests.append({
+    'input':{
+        'cards': [4 ,2 ,1,1,0 -2,-9,-5],
+        'query': -2
+    },
+    'output' : 5
+})
 
 test
-def locate_card(cards, query):
-    for position , cards in enumerate(cards):
-        if cards == query:
-             return position
-        
-    return  - 1
 
+def locate_card(cards, query):
+    # for position , cards in enumerate(cards):
+    #     if cards == query:
+    #          return position
+    lo = 0 
+    hi = len(cards) -1
+    print (hi)
+    while lo <= hi :
+        mid = (lo + hi )//2
+
+        if cards[mid] == query:
+            return mid
+        elif cards[mid] < query:
+            hi = mid - 1
+        else : 
+            lo = mid + 1
+    return -1        
 evaluate_test_cases(locate_card , tests)
