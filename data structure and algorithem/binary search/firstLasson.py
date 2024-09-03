@@ -90,5 +90,7 @@ def locate_card(cards, query):
             hi = mid - 1
         else : 
             lo = mid + 1
+
+        
     return -1        
 evaluate_test_cases(locate_card , tests)
